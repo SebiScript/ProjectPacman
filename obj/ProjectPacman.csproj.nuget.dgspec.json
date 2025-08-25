@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sebascript\\OneDrive\\Escritorio\\Programación 3\\Trabajos\\ProjectPacman\\ProjectPacman.csproj": {}
+    "C:\\Users\\sebascript\\OneDrive\\Escritorio\\ProjectPacman\\ProjectPacman.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sebascript\\OneDrive\\Escritorio\\Programación 3\\Trabajos\\ProjectPacman\\ProjectPacman.csproj": {
+    "C:\\Users\\sebascript\\OneDrive\\Escritorio\\ProjectPacman\\ProjectPacman.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sebascript\\OneDrive\\Escritorio\\Programación 3\\Trabajos\\ProjectPacman\\ProjectPacman.csproj",
+        "projectUniqueName": "C:\\Users\\sebascript\\OneDrive\\Escritorio\\ProjectPacman\\ProjectPacman.csproj",
         "projectName": "ProjectPacman",
-        "projectPath": "C:\\Users\\sebascript\\OneDrive\\Escritorio\\Programación 3\\Trabajos\\ProjectPacman\\ProjectPacman.csproj",
+        "projectPath": "C:\\Users\\sebascript\\OneDrive\\Escritorio\\ProjectPacman\\ProjectPacman.csproj",
         "packagesPath": "C:\\Users\\sebascript\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sebascript\\OneDrive\\Escritorio\\Programación 3\\Trabajos\\ProjectPacman\\obj\\",
+        "outputPath": "C:\\Users\\sebascript\\OneDrive\\Escritorio\\ProjectPacman\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
