@@ -1,0 +1,22 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ProjectPacman.App"
+             xmlns:local="using:ProjectPacman"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+    
+             
+    <Application.Resources>
+        <FontFamily x:Key="PacFont">
+            ./Assets/Fonts/pacman.ttf#PacFont
+        </FontFamily>
+    </Application.Resources>
+</Application>
