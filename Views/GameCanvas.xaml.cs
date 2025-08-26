@@ -13,6 +13,10 @@ using Avalonia.Media.TextFormatting;
 using Avalonia.Threading;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using ProjectPacman.Models;
+using Avalonia.Media;
+using Point = Avalonia.Point;
+
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -20,6 +24,12 @@ namespace ProjectPacman.Views;
 
 public sealed partial class GameCanvas : UserControl
 {
+    private LevelMap _level;
+    private int _score = 0;
+
+    private const float SpriteSize = 32f;   
+    private const float CollisionRadius = 12f;
+    
     private readonly DispatcherTimer _gameLoop;
     private DateTime _lastUpdate;
     private Dictionary<string, Bitmap[]> _pacmanSprites;
@@ -63,6 +73,7 @@ public sealed partial class GameCanvas : UserControl
         LoadPacmanSprites();
         Focusable = true;
         Focus();
+        _level = LevelMap.FromAscii(Levels.Level1);
     }
 
     private void Update(double deltaTime)
@@ -109,32 +120,54 @@ public sealed partial class GameCanvas : UserControl
         _direction = Vector2.Zero; 
     }
 
-    public override void Render(DrawingContext context)
+    public override void Render(Avalonia.Media.DrawingContext context)
     {
-        base.Render(context);
-
-        // Dibuja el fondo negro
+        // Fondo
         context.FillRectangle(Brushes.Black, new Rect(0, 0, Bounds.Width, Bounds.Height));
 
-        // Si los sprites están cargados y la dirección existe
-        if (_pacmanSprites != null && _pacmanSprites.ContainsKey(_currentDirection))
+        // Tiles
+        for (int r = 0; r < _level.Rows; r++)
         {
-            var sprite = _pacmanSprites[_currentDirection][_frameIndex];
-        
-            // Define el área de origen (toda la imagen)
-            var sourceRect = new Rect(0, 0, sprite.PixelSize.Width, sprite.PixelSize.Height);
-        
-            // Define el área de destino (donde se dibujará el sprite en el canvas)
-            var destRect = new Rect(_playerX, _playerY, 32, 32);
+            for (int c = 0; c < _level.Cols; c++)
+            {
+                var t = _level[r, c];
+                double x = c * LevelMap.TileSize;
+                double y = r * LevelMap.TileSize;
 
-            // Dibuja la imagen
-            context.DrawImage(
-                source: sprite,
-                sourceRect: sourceRect,
-                destRect: destRect
-            );
+                if (t == Tile.Wall)
+                {
+                    context.FillRectangle(Brushes.DarkBlue, new Rect(x, y, LevelMap.TileSize, LevelMap.TileSize));
+                }
+                else if (t == Tile.Pellet)
+                {
+                    // Pellet 6x6 -> radios 3, centrado en el tile
+                    var cx = x + LevelMap.TileSize / 2.0;
+                    var cy = y + LevelMap.TileSize / 2.0;
+                    context.DrawEllipse(Brushes.Gold, pen: null, center: new Point(cx, cy), radiusX: 3, radiusY: 3);
+                }
+                else if (t == Tile.Power)
+                {
+                    // Power-up 16x16 -> radios 8
+                    var cx = x + LevelMap.TileSize / 2.0;
+                    var cy = y + LevelMap.TileSize / 2.0;
+                    context.DrawEllipse(Brushes.Gold, pen: null, center: new Point(cx, cy), radiusX: 8, radiusY: 8);
+                }
+            }
         }
+
+        // Pacman
+        if (_pacmanSprites != null && _pacmanSprites.TryGetValue(_currentDirection, out var sprites))
+        {
+            var sprite = sprites[_frameIndex];
+            var sourceRect = new Rect(0, 0, sprite.PixelSize.Width, sprite.PixelSize.Height);
+            var destRect = new Rect(_playerX, _playerY, 32, 32);
+            context.DrawImage(sprite, sourceRect, destRect);
+        }
+
+        // Si hay hijos en el UserControl, se dibujan encima
+        base.Render(context);
     }
+
     
     private void LoadPacmanSprites()
     {

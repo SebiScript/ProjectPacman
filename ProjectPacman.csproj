@@ -33,7 +33,6 @@
         <AvaloniaXaml Include="Views\GameCanvas.xaml" />
     </ItemGroup>
     
-    
     <ItemGroup>
         <AvaloniaResource Include="Assets\Fonts\pacman.ttf" />
         <AvaloniaResource Include="Assets\Backgrounds\Fondo.png" />
