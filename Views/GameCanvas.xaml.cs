@@ -78,9 +78,15 @@ public sealed partial class GameCanvas : UserControl
 
     private void Update(double deltaTime)
     {
-        // Movimiento
-        _playerX += _direction.X * _speed * (float)deltaTime;
-        _playerY += _direction.Y * _speed * (float)deltaTime;
+        float nextX = _playerX + _direction.X * _speed * (float)deltaTime;
+        float nextY = _playerY + _direction.Y * _speed * (float)deltaTime;
+
+        // Si el siguiente paso no es pared, actualiza la posición
+        if (CanMove(nextX + SpriteSize / 2, nextY + SpriteSize / 2))
+        {
+            _playerX = nextX;
+            _playerY = nextY;
+        }
 
         // Animación
         if (_direction != Vector2.Zero)
@@ -99,6 +105,7 @@ public sealed partial class GameCanvas : UserControl
 
         InvalidateVisual(); // repinta
     }
+
 
     
     protected override void OnKeyDown(KeyEventArgs e)
@@ -185,4 +192,18 @@ public sealed partial class GameCanvas : UserControl
             }
         }
     }
+    private bool CanMove(float nextX, float nextY)
+    {
+        // Tile actual
+        int col = (int)(nextX / LevelMap.TileSize);
+        int row = (int)(nextY / LevelMap.TileSize);
+
+        // Si está fuera del mapa
+        if (row < 0 || row >= _level.Rows || col < 0 || col >= _level.Cols)
+            return false;
+
+        // Si es pared, no puede moverse
+        return _level[row, col] != Tile.Wall;
+    }
+
 }
