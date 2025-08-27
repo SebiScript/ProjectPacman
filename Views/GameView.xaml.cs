@@ -25,7 +25,7 @@ public partial class GameView : UserControl
         // Timer del juego
         _gameTimer = new DispatcherTimer
         {
-            Interval = TimeSpan.FromMilliseconds(16)
+            Interval = TimeSpan.FromMilliseconds(16) // ~60 FPS
         };
         _gameTimer.Tick += GameLoop;
         _gameTimer.Start();

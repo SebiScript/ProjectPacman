@@ -3930,11 +3930,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sebascript\\OneDrive\\Escritorio\\ProjectPacman\\ProjectPacman.csproj",
+      "projectUniqueName": "C:\\Users\\sebascript\\OneDrive\\Escritorio\\ProjectPacman1\\ProjectPacman.csproj",
       "projectName": "ProjectPacman",
-      "projectPath": "C:\\Users\\sebascript\\OneDrive\\Escritorio\\ProjectPacman\\ProjectPacman.csproj",
+      "projectPath": "C:\\Users\\sebascript\\OneDrive\\Escritorio\\ProjectPacman1\\ProjectPacman.csproj",
       "packagesPath": "C:\\Users\\sebascript\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sebascript\\OneDrive\\Escritorio\\ProjectPacman\\obj\\",
+      "outputPath": "C:\\Users\\sebascript\\OneDrive\\Escritorio\\ProjectPacman1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

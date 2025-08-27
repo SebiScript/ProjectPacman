@@ -14,7 +14,6 @@ using Avalonia.Threading;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using ProjectPacman.Models;
-using ProjectPacman.Controls;
 using Avalonia.Media;
 using Point = Avalonia.Point;
 
@@ -82,7 +81,7 @@ public sealed partial class GameCanvas : UserControl
         float nextX = _playerX + _direction.X * _speed * (float)deltaTime;
         float nextY = _playerY + _direction.Y * _speed * (float)deltaTime;
 
-        // Si el siguiente paso no es pared, actualiza la posición
+        
         if (CanMove(nextX + SpriteSize / 2, nextY + SpriteSize / 2))
         {
             _playerX = nextX;
@@ -101,10 +100,10 @@ public sealed partial class GameCanvas : UserControl
         }
         else
         {
-            _frameIndex = 1; // boca cerrada cuando está quieto
+            _frameIndex = 1; 
         }
 
-        InvalidateVisual(); // repinta
+        InvalidateVisual();
     }
 
 
@@ -130,10 +129,10 @@ public sealed partial class GameCanvas : UserControl
 
     public override void Render(Avalonia.Media.DrawingContext context)
     {
-        // Fondo
+        
         context.FillRectangle(Brushes.Black, new Rect(0, 0, Bounds.Width, Bounds.Height));
 
-        // Tiles
+        
         for (int r = 0; r < _level.Rows; r++)
         {
             for (int c = 0; c < _level.Cols; c++)
@@ -148,14 +147,14 @@ public sealed partial class GameCanvas : UserControl
                 }
                 else if (t == Tile.Pellet)
                 {
-                    // Pellet 6x6 -> radios 3, centrado en el tile
+                    
                     var cx = x + LevelMap.TileSize / 2.0;
                     var cy = y + LevelMap.TileSize / 2.0;
                     context.DrawEllipse(Brushes.Gold, pen: null, center: new Point(cx, cy), radiusX: 3, radiusY: 3);
                 }
                 else if (t == Tile.Power)
                 {
-                    // Power-up 16x16 -> radios 8
+                    
                     var cx = x + LevelMap.TileSize / 2.0;
                     var cy = y + LevelMap.TileSize / 2.0;
                     context.DrawEllipse(Brushes.Gold, pen: null, center: new Point(cx, cy), radiusX: 8, radiusY: 8);
@@ -163,7 +162,7 @@ public sealed partial class GameCanvas : UserControl
             }
         }
 
-        // Pacman
+        
         if (_pacmanSprites != null && _pacmanSprites.TryGetValue(_currentDirection, out var sprites))
         {
             var sprite = sprites[_frameIndex];
@@ -172,7 +171,7 @@ public sealed partial class GameCanvas : UserControl
             context.DrawImage(sprite, sourceRect, destRect);
         }
 
-        // Si hay hijos en el UserControl, se dibujan encima
+        
         base.Render(context);
     }
 
@@ -195,15 +194,15 @@ public sealed partial class GameCanvas : UserControl
     }
     private bool CanMove(float nextX, float nextY)
     {
-        // Tile actual
+        
         int col = (int)(nextX / LevelMap.TileSize);
         int row = (int)(nextY / LevelMap.TileSize);
 
-        // Si está fuera del mapa
+        
         if (row < 0 || row >= _level.Rows || col < 0 || col >= _level.Cols)
             return false;
 
-        // Si es pared, no puede moverse
+        
         return _level[row, col] != Tile.Wall;
     }
 
