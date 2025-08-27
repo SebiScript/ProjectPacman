@@ -11,8 +11,6 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
     
-    <Grid>
-        <TextBlock Text="Pantalla del juego" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    </Grid>
+    <local:GameControl x:Name="GameCanvas" Focusable="True"/>
     
 </UserControl>

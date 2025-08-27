@@ -18,9 +18,9 @@
         </Grid.Background>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20">
         <TextBlock Text="PAC-MAN" FontSize="74" HorizontalAlignment="Center" FontFamily="{StaticResource PacFont}"/>
-        <Button Content="Jugar" FontFamily="{StaticResource PacFont}" HorizontalAlignment="Center" Command="{Binding StartGameCommand}" Width="120" Height="40" Background="Green"/>
+        <Button Content="Jugar" FontFamily="{StaticResource PacFont}" HorizontalAlignment="Center" Click="Play_Click" Width="120" Height="40" Background="Green"/>
         <Button Content="Score" FontFamily="{StaticResource PacFont}" HorizontalAlignment="Center" Command="{Binding StartGameCommand}" Width="120" Height="40" Background="Green"/>
-        <Button Content="Exit" FontFamily="{StaticResource PacFont}" HorizontalAlignment="Center" Command="{Binding StartGameCommand}" Width="120" Height="40" Background="Green"/>
+        <Button Content="Exit" FontFamily="{StaticResource PacFont}" HorizontalAlignment="Center" Click="Exit_Click" Width="120" Height="40" Background="Green"/>
     </StackPanel>
     </Grid>
 </UserControl>

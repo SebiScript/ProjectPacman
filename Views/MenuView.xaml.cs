@@ -10,9 +10,21 @@ namespace ProjectPacman.Views;
 
 public sealed partial class MenuView : UserControl
 {
-    public MenuView()
+    private MainWindow _main;
+
+    public MenuView(MainWindow main)
     {
-        this.InitializeComponent();
+        InitializeComponent();
+        _main = main;
     }
 
+    private void Play_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        _main.ShowGame();
+    }
+
+    private void Exit_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        _main.Close();
+    }
 }

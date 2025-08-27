@@ -8,11 +8,31 @@ using Avalonia.Controls;
 
 namespace ProjectPacman.Views;
 
-public sealed partial class GameView : UserControl
+using Avalonia.Controls;
+using Avalonia.Threading;
+using System;
+
+public partial class GameView : UserControl
 {
-    public GameView()
+    private MainWindow _main;
+    private DispatcherTimer _gameTimer;
+
+    public GameView(MainWindow main)
     {
-        this.InitializeComponent();
+        InitializeComponent();
+        _main = main;
+
+        // Timer del juego
+        _gameTimer = new DispatcherTimer
+        {
+            Interval = TimeSpan.FromMilliseconds(16) // ~60 FPS
+        };
+        _gameTimer.Tick += GameLoop;
+        _gameTimer.Start();
     }
 
+    private void GameLoop(object? sender, EventArgs e)
+    {
+        GameCanvas.InvalidateVisual();
+    }
 }

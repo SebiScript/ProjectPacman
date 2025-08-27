@@ -32,7 +32,7 @@
         <AvaloniaXaml Include="Views\GameView.xaml" />
         <AvaloniaXaml Include="Views\GameCanvas.xaml" />
     </ItemGroup>
-    
+
     <ItemGroup>
         <AvaloniaResource Include="Assets\Fonts\pacman.ttf" />
         <AvaloniaResource Include="Assets\Backgrounds\Fondo.png" />
@@ -40,8 +40,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Page Include="Views\GameCanvas.xaml" />
+        <Page Include="Views\GameCanvas.xaml" />
         <Page Include="Views\GameView.xaml" />
         <Page Include="Views\MenuView.xaml" />
+        <Page Include="Views\GameControl.xaml" />
     </ItemGroup>
 </Project>

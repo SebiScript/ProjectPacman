@@ -5,6 +5,9 @@
       <map>
         <entry key="App.axaml" value="ProjectPacman.csproj" />
         <entry key="Views/GameCanvas.xaml" value="ProjectPacman.csproj" />
+        <entry key="Views/GameContro.xaml" value="ProjectPacman.csproj" />
+        <entry key="Views/GameControl.axaml" value="ProjectPacman.csproj" />
+        <entry key="Views/GameControl.xaml" value="ProjectPacman.csproj" />
         <entry key="Views/GameView.xaml" value="ProjectPacman.csproj" />
         <entry key="Views/MainWindow.axaml" value="ProjectPacman.csproj" />
         <entry key="Views/MenuView.xaml" value="ProjectPacman.csproj" />

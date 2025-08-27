@@ -3,12 +3,15 @@
         xmlns:vm="using:ProjectPacman.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:ProjectPacman.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="ProjectPacman.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
+        Background="Black"
         Icon="/Assets/avalonia-logo.ico"
         Title="ProjectPacman">
-
-    <ContentControl Content="{Binding CurrentView}"/>
-
+    
+    
+    <ContentControl x:Name="MainContent"/>
+    
 </Window>
