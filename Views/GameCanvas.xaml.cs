@@ -14,6 +14,7 @@ using Avalonia.Threading;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using ProjectPacman.Models;
+using ProjectPacman.Controls;
 using Avalonia.Media;
 using Point = Avalonia.Point;
 

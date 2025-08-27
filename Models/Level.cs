@@ -1,9 +1,9 @@
 namespace ProjectPacman.Models;
 
-public static class Levels
+public static class Level
 {
     // # = pared, . = pellet, o = power pellet, espacio = vacío
-    public static readonly string[] Level1 = new[]
+    public static readonly string[] LevelPacman = new[]
     {
         "###################",
         "#.........#........#",

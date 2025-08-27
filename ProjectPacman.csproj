@@ -43,6 +43,5 @@
         <Page Include="Views\GameCanvas.xaml" />
         <Page Include="Views\GameView.xaml" />
         <Page Include="Views\MenuView.xaml" />
-        <Page Include="Views\GameControl.xaml" />
     </ItemGroup>
 </Project>
